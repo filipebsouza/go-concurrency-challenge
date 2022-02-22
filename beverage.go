@@ -36,7 +36,7 @@ func (p *Beverage) GetDefaultPreparationTime() time.Duration {
 }
 
 func (p *Beverage) SendToKitchen() {
-	log.Println("Send Beverage to kitchen")
+	log.Printf("Send Beverage {%s} to kitchen", p.GetId().String())
 
 	preparationTime := p.GetDefaultPreparationTime()
 	switch p.Kind {
@@ -56,7 +56,7 @@ func (p *Beverage) StartPreparation() {
 	p.Ctx, p.Cancel = context.WithTimeout(context.Background(), p.Time)
 	select {
 	case <-p.Ctx.Done():
-		log.Println("Beverage done")
+		log.Printf("Beverage {%s} done", p.GetId().String())
 		p.State = Done
 	}
 }

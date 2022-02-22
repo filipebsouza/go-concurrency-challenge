@@ -18,8 +18,12 @@ const (
 
 type OrderId uuid.UUID
 
+func (orderId OrderId) String() string {
+	return uuid.UUID(orderId).String()
+}
+
 type IOrder interface {
-	GetOrderId() OrderId
+	GetId() OrderId
 	WaitFinishPreparation()
 	GetProducts() *[]IProduct
 	GetOrderStatus() int
@@ -44,6 +48,7 @@ func MakeAnOrder(products ...IProduct) IOrder {
 		Requested,
 	}
 
+	log.Printf("Sending products of order {%s} to kitchen", o.GetId().String())
 	for _, product := range *o.products {
 		go product.SendToKitchen()
 	}
@@ -51,12 +56,12 @@ func MakeAnOrder(products ...IProduct) IOrder {
 	return o
 }
 
-func (o *order) GetOrderId() OrderId {
+func (o *order) GetId() OrderId {
 	return o.id
 }
 
 func (o *order) WaitFinishPreparation() {
-	log.Println("Wait the preparation")
+	log.Printf("Wait the preparation of order {%s}", o.GetId().String())
 	o.status = Making
 	productsToVerify := *o.products
 	length := len(productsToVerify)
@@ -74,11 +79,12 @@ func (o *order) WaitFinishPreparation() {
 			break
 		}
 
-		time.Sleep(time.Second * 30)
+		log.Printf("Still waiting for the order {%s}", o.GetId().String())
+		time.Sleep(time.Second * 10)
 	}
 
 	o.status = ReadyForDelivery
-	log.Println("Order finish")
+	log.Printf("Order {%s} finish", o.GetId().String())
 }
 
 func (o *order) GetProducts() *[]IProduct {

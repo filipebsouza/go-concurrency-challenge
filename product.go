@@ -32,6 +32,10 @@ type ProductContext struct {
 
 type ProductId uuid.UUID
 
+func (productId ProductId) String() string {
+	return uuid.UUID(productId).String()
+}
+
 func NewProductId() ProductId {
 	return ProductId(uuid.New())
 }
