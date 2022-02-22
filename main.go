@@ -51,4 +51,5 @@ func main() {
 	}
 
 	wg.Wait()
+	log.Println("All orders finished")
 }
