@@ -72,3 +72,8 @@ Default time: 8 min
 | Rustic fries | Default time + 4 min |
 
 **Example:** Rustic fries (12 min). Total preparation: 12 min.
+
+### Order
+
+An Order contain one or more products.
+An Order starts with the state `Requested`, when the products start the preparation become `Making` and when done become `Ready for delivery`.

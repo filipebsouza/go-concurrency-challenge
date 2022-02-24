@@ -12,7 +12,7 @@ func TestRequestBeverage_ShouldReturn_ValidBeverage(t *testing.T) {
 		t.Error("Beverage is null")
 	}
 	if b.GetState() != main.OrderMade {
-		t.Error("Beverage State is different than OderMade")
+		t.Error("Beverage State is different than OrderMade")
 	}
 }
 
