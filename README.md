@@ -1,21 +1,21 @@
-# Concurrency challenge
+# Concurrency challenge 🔃
 
 This exercise was made for fixed the `golang` concurrency tools with a practical scenario.
 
-# Burger House
+# Burger House 🍔🏠
 
 The context is a restaurant, actually a Burger House that make `Burgers`, `Fries` and `Beverages`. These products have
 different preparation times, but the `Order` just can be delivery after all products are done.
 
 # Requirements
 
-### Burger
+### Burger 🍔
 
 Preparation process:
 
 Default time: 02 min
 
-| Point       | Preparation time            |
+| Point 🥩    | Preparation time            |
 |-------------|-----------------------------|
 | Blue rare   | Default time                |
 | Rare        | Default time + 30 sec       |
@@ -24,14 +24,14 @@ Default time: 02 min
 | Medium well | Default time + 2 min        |
 | Well done   | Default time + 2 min 30 sec |
 
-| Bacon         | Preparation time |
+| Bacon 🥓      | Preparation time |
 |---------------|------------------|
 | Without bacon | Nothing          |
 | Streaky       | 2 min            |
 | Canadian      | 3 min            |
 | Crumbs        | 4 min            |
 
-| Salad                | Preparation time |
+| Salad 🥗             | Preparation time |
 |----------------------|------------------|
 | Without salad        | Nothing          |
 | Lettuce              | 1 min            |
@@ -42,7 +42,7 @@ Default time: 02 min
 **Example:** Well done Burger (4 min 30 sec) with Canadian bacon (3 min) and Lettuce salad (1 min). Total preparation
 time: 8 min 30 sec
 
-### Beverage
+### Beverage 🥤
 
 Preparation process:
 
@@ -59,7 +59,7 @@ Default time: 15 sec
 
 **Example:** Iced tea (25 sec). Total preparation: 25 sec.
 
-### Fries
+### Fries 🍟
 
 Preparation process:
 
